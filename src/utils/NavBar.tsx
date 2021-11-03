@@ -1,7 +1,8 @@
+import episodes from "../episodes.json";
+
 interface Props {
   searchText: string;
   handleSearchText: (input: string) => void;
-  allEpisodes: number;
   numResults: number;
 }
 
@@ -16,9 +17,9 @@ export function NavBar(props: Props): JSX.Element {
         onChange={(e) => props.handleSearchText(e.target.value)}
       />
       <p>
-        {props.numResults === props.allEpisodes
-          ? `Displaying ${props.allEpisodes} episodes`
-          : `Displaying ${props.numResults} of ${props.allEpisodes} episodes`}
+        {props.numResults === episodes.length
+          ? `Displaying ${episodes.length} episodes`
+          : `Displaying ${props.numResults} of ${episodes.length} episodes`}
       </p>
     </>
   );

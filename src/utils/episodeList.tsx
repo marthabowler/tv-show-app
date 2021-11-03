@@ -1,23 +1,27 @@
 import episodes from "../episodes.json";
 import EpisodeItem from "./episode";
+import seasonify from "./seasonify";
 
 interface Props {
   searchText: string;
-  handleAllEpisodes: (num: number) => void;
   handleNumResults: (num: number) => void;
+  dropDownValue: string;
 }
 
 export function EpisodeList(props: Props): JSX.Element {
   const filteredEpisodes = episodes
     .filter((episode) => {
+      if (props.dropDownValue !== "")
+        return seasonify(episode.season, episode.number, episode.name).includes(
+          props.dropDownValue
+        );
+
       if (
         episode.name.toLowerCase().includes(props.searchText.toLowerCase()) ||
         episode.summary.toLowerCase().includes(props.searchText.toLowerCase())
-      ) {
+      )
         return episode;
-      } else {
-        return false;
-      }
+      else return false;
     })
     .map((episode) => (
       <EpisodeItem
@@ -30,7 +34,6 @@ export function EpisodeList(props: Props): JSX.Element {
       />
     ));
   props.handleNumResults(filteredEpisodes.length);
-  props.handleAllEpisodes(episodes.length);
 
   return (
     <div className="allEps">
