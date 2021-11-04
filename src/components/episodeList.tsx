@@ -1,6 +1,5 @@
 import EpisodeItem from "./episode";
 import seasonify from "../utils/seasonify";
-import { useEffect } from "react";
 import { Episode } from "./IEpisodes";
 
 interface Props {
@@ -26,6 +25,7 @@ export function EpisodeList(props: Props): JSX.Element {
         return episode;
       else return false;
     })
+
     .map((episode) => (
       <EpisodeItem
         key={episode.id}

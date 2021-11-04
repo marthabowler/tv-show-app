@@ -3,6 +3,8 @@ export interface Episode {
   name: string;
   season: number;
   number: number;
-  image: string | null;
+  image: {
+    medium: string | null;
+  };
   summary: string;
 }

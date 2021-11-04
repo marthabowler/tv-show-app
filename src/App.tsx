@@ -4,7 +4,6 @@ import { EpisodeList } from "./components/episodeList";
 import { NavBar } from "./components/NavBar";
 import { DropDown } from "./components/DropDown";
 import { useEffect } from "react";
-import seasonify from "./utils/seasonify";
 
 function App(): JSX.Element {
   const [searchText, setSearchText] = useState<string>("");
