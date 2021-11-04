@@ -21,6 +21,9 @@ export function DropDown(props: Props): JSX.Element {
           </option>
         ))}
       </select>
+      <button onClick={() => props.handleDropDown("Choose an episode")}>
+        Reset
+      </button>
     </>
   );
 }
