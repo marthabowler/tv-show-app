@@ -1,17 +1,20 @@
-import episodes from "../episodes.json";
 import EpisodeItem from "./episode";
-import seasonify from "./seasonify";
+import seasonify from "../utils/seasonify";
+import { useEffect } from "react";
+import { Episode } from "./IEpisodes";
 
 interface Props {
   searchText: string;
   handleNumResults: (num: number) => void;
   dropDownValue: string;
+  episodes: Episode[];
+  handleSetEpisode: (input: []) => void;
 }
 
 export function EpisodeList(props: Props): JSX.Element {
-  const filteredEpisodes = episodes
+  const filteredEpisodes = props.episodes
     .filter((episode) => {
-      if (props.dropDownValue !== "")
+      if (props.dropDownValue)
         return seasonify(episode.season, episode.number, episode.name).includes(
           props.dropDownValue
         );
@@ -29,8 +32,9 @@ export function EpisodeList(props: Props): JSX.Element {
         name={episode.name}
         season={episode.season}
         number={episode.number}
-        image={episode.image.medium}
+        image={episode.image}
         summary={episode.summary}
+        episodes={[]}
       />
     ));
   props.handleNumResults(filteredEpisodes.length);
