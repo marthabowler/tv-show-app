@@ -28,13 +28,13 @@ export function EpisodeList(props: Props): JSX.Element {
 
     .map((episode) => (
       <EpisodeItem
+        id={episode.id}
         key={episode.id}
         name={episode.name}
         season={episode.season}
         number={episode.number}
         image={episode.image}
         summary={episode.summary}
-        episodes={[]}
       />
     ));
   props.handleNumResults(filteredEpisodes.length);

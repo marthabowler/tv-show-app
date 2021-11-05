@@ -4,7 +4,7 @@ export interface Episode {
   season: number;
   number: number;
   image: {
-    medium: string | null;
-  };
+    medium: string;
+  } | null;
   summary: string;
 }
