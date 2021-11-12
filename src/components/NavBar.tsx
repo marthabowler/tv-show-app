@@ -9,19 +9,22 @@ interface Props {
 
 export function NavBar(props: Props): JSX.Element {
   return (
-    <>
+    <div className="wrapper">
       <input
+        className="search"
         type="text"
         placeholder="Search.."
         name="search"
         value={props.searchText}
         onChange={(e) => props.handleSearchText(e.target.value)}
       />
-      <p>
+      <br />
+      <br />
+      <p className="results">
         {props.numResults === props.episodes.length
-          ? `Displaying ${props.episodes.length} episodes`
-          : `Displaying ${props.numResults} of ${props.episodes.length} episodes`}
+          ? `   Displaying ${props.episodes.length} episodes`
+          : `   Displaying ${props.numResults} of ${props.episodes.length} episodes`}
       </p>
-    </>
+    </div>
   );
 }

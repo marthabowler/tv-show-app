@@ -14,9 +14,9 @@ import { Episode } from "./IEpisodes";
 
 function EpisodeItem(props: Episode): JSX.Element {
   return (
-    <section id={props.name}>
+    <div className="episode">
       <h2>{props.name}</h2>
-      <p>{seasonify(props.season, props.number, props.name)}</p>
+      <h3>{seasonify(props.season, props.number, props.name)}</h3>
       <img
         src={
           props.image
@@ -32,7 +32,7 @@ function EpisodeItem(props: Episode): JSX.Element {
           .replace("<br><br>", "")
           .replace("</p><p></p><p>", "")
           .replace("</p><p>", "")}
-    </section>
+    </div>
   );
 }
 

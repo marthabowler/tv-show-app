@@ -23,20 +23,25 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <header>
-        <h1>Game of Thrones</h1>
+        <h1>
+          <strong>Game of Thrones</strong>
+        </h1>
       </header>
-      <DropDown
-        episodes={episodes}
-        handleDropDown={setDropDownValue}
-        dropDownValue={dropDownValue}
-      />
-      <NavBar
-        searchText={searchText}
-        episodes={episodes}
-        handleSearchText={setSearchText}
-        numResults={numResults}
-      />
+      <br />
       <main>
+        <DropDown
+          episodes={episodes}
+          handleDropDown={setDropDownValue}
+          dropDownValue={dropDownValue}
+        />
+        <br />
+        <br />
+        <NavBar
+          searchText={searchText}
+          episodes={episodes}
+          handleSearchText={setSearchText}
+          numResults={numResults}
+        />
         <EpisodeList
           episodes={episodes}
           handleSetEpisode={setEpisode}
